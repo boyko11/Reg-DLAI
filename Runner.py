@@ -16,11 +16,6 @@ class Runner:
         learning_rate = 0.3
         parameters, costs = ann.fit(train_X, train_Y, learning_rate=learning_rate, lambd=lambd, keep_prob=keep_prob)
 
-        print ("On the train set:")
-        predictions_train = ann_service.predict(train_X, train_Y, parameters)
-        print ("On the test set:")
-        predictions_test = ann_service.predict(test_X, test_Y, parameters)
-
         plotting_service.plot_loss_per_iteration_for_learning_rate(costs, learning_rate)
 
         plotting_service.plot_decision_boundary(lambda x: ann_service.predict_dec(parameters, x.T), train_X, train_Y)
